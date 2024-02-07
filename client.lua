@@ -5,6 +5,7 @@ local zones = {}
 
 local function OpenBank()
     QBCore.Functions.TriggerCallback('qb-banking:server:openBank', function(accounts, statements, playerData)
+        TriggerEvent('wais:addmissionxp:usebank', 1) --added by pamela for wais battlepass
         SetNuiFocus(true, true)
         SendNUIMessage({
             action = 'openBank',
@@ -39,6 +40,7 @@ local function OpenATM()
                 playerData = playerData
             })
         end)
+        TriggerEvent('wais:addmissionxp:useatm', 1) --added by pamela for wais battlepass
     end)
 end
 
@@ -62,36 +64,42 @@ end)
 
 RegisterNUICallback('withdraw', function(data, cb)
     QBCore.Functions.TriggerCallback('qb-banking:server:withdraw', function(status)
+        TriggerEvent('wais:addmissionxp:withdraw', 1) --added by pamela for wais battlepass
         cb(status)
     end, data)
 end)
 
 RegisterNUICallback('deposit', function(data, cb)
     QBCore.Functions.TriggerCallback('qb-banking:server:deposit', function(status)
+        TriggerEvent('wais:addmissionxp:deposit', 1) --added by pamela for wais battlepass
         cb(status)
     end, data)
 end)
 
 RegisterNUICallback('internalTransfer', function(data, cb)
     QBCore.Functions.TriggerCallback('qb-banking:server:internalTransfer', function(status)
+        TriggerEvent('wais:addmissionxp:transfer', 1) --added by pamela for wais battlepass
         cb(status)
     end, data)
 end)
 
 RegisterNUICallback('externalTransfer', function(data, cb)
     QBCore.Functions.TriggerCallback('qb-banking:server:externalTransfer', function(status)
+        TriggerEvent('wais:addmissionxp:transfer', 1) --added by pamela for wais battlepass
         cb(status)
     end, data)
 end)
 
 RegisterNUICallback('orderCard', function(data, cb)
     QBCore.Functions.TriggerCallback('qb-banking:server:orderCard', function(status)
+        TriggerEvent('wais:addmissionxp:ordercard', 1) --added by pamela for wais battlepass
         cb(status)
     end, data)
 end)
 
 RegisterNUICallback('openAccount', function(data, cb)
     QBCore.Functions.TriggerCallback('qb-banking:server:openAccount', function(status)
+        TriggerEvent('wais:addmissionxp:openaccount', 1) --added by pamela for wais battlepass
         cb(status)
     end, data)
 end)
